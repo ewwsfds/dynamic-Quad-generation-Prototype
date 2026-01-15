@@ -1,7 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-#include <vector>
+#include <vector> // importan
 
 // Vertex shader
 const char* vertexShaderSource = R"(
@@ -26,6 +26,9 @@ void main()
     FragColor = vec4(0.2, 0.8, 0.3, 1.0); // greenish color
 }
 )";
+
+
+/// IMPORTAN TO BE BEFORE int main()
 
 void addQuad(std::vector<float>& vertices, float x, float y, float w, float h)
 {
@@ -74,7 +77,7 @@ int main()
 
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW); //Important
 
     // positions
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
